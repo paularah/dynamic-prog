@@ -1,3 +1,4 @@
+# memoized recursive solution for grid traveller problem
 def gridTraveller(m, n, memo={}):
     key = str(m) + ',' + str(n)
     if key in memo:
@@ -8,6 +9,3 @@ def gridTraveller(m, n, memo={}):
         return 1
     memo[key] = gridTraveller(m-1, n) + gridTraveller(m, n-1)
     return memo[key]
-    
-
-

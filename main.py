@@ -9,3 +9,14 @@ def gridTraveller(m, n, memo={}):
         return 1
     memo[key] = gridTraveller(m-1, n) + gridTraveller(m, n-1)
     return memo[key]
+
+
+def basicCanSum(n, m):
+    hashmap = {}
+    for i in m:
+        if i in hashmap:
+            return True
+        hashmap[n-i] = True
+
+
+print(basicCanSum(7, [5, 3, 4, 7]))

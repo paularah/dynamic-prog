@@ -56,15 +56,28 @@ def gridTravellerTable(m, n):
     return table[m][n]
 
 
-def hourGlass(arr):
+def hourglassSum(arr):
+    # Write your code here
     def getHourGlassSum(arr, i, j):
         return arr[i][j] + arr[i][j+1] + arr[i][j+2] + arr[i+1][j+1] + arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2]
 
-    hourGlassSum = []
+    sumOfHourGlass = []
     for i in range(6):
         for j in range(6):
-            hourGlassSum.append(getHourGlassSum(arr, i, j))
-    return max(hourGlassSum)
+            if i + 2 <= 5 and j+2 <= 5:
+                sumOfHourGlass.append(getHourGlassSum(arr, i, j))
+    return max(sumOfHourGlass)
+
+
+myArr = [[1, 1, 1, 0, 0, 0],
+         [0, 1, 0, 0, 0, 0],
+         [1, 1, 1, 0, 0, 0],
+         [0, 0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0, 0]
+         ]
+
+print(hourGlass(myArr))
 
 
 def search(nums, target):
